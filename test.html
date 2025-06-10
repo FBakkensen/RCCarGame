@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RC Car Racing Game - Test Runner</title>
+    <style>
+        body {
+            margin: 20px;
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #0052CC;
+            text-align: center;
+        }
+        #testResults {
+            background-color: #2C2C2C;
+            border: 1px solid #FFFFFF;
+            padding: 20px;
+            border-radius: 5px;
+            min-height: 400px;
+            font-size: 14px;
+            white-space: pre-line;
+        }
+        .passed {
+            color: #009933;
+        }
+        .failed {
+            color: #CC0000;
+        }
+        .test-section {
+            border-bottom: 1px solid #555;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+        #runTests {
+            background-color: #0052CC;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        #runTests:hover {
+            background-color: #0066FF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RC Car Racing Game - Test Runner</h1>
+        <button id="runTests">Run All Tests</button>
+        <div id="testResults">
+            Test framework ready. Click "Run All Tests" to begin testing.
+        </div>
+    </div>
+
+    <!-- Test Framework -->
+    <script src="tests/testFramework.js"></script>
+    
+    <!-- Test Files -->
+    <script src="tests/unit/gameTests.js"></script>
+    
+    <script>
+        // Test runner logic
+        const testResults = document.getElementById('testResults');
+        const runTestsBtn = document.getElementById('runTests');
+        
+        runTestsBtn.addEventListener('click', () => {
+            testResults.innerHTML = 'Running tests...\n\n';
+            
+            // Capture console output
+            const originalLog = console.log;
+            const originalError = console.error;
+            
+            console.log = (...args) => {
+                testResults.innerHTML += args.join(' ') + '\n';
+                originalLog.apply(console, args);
+            };
+            
+            console.error = (...args) => {
+                testResults.innerHTML += args.join(' ') + '\n';
+                originalError.apply(console, args);
+            };
+            
+            try {
+                // Run tests
+                if (typeof runAllTests === 'function') {
+                    runAllTests();
+                } else {
+                    testResults.innerHTML += 'No test suites found. Tests will be added in subsequent tasks.\n';
+                }
+            } catch (error) {
+                testResults.innerHTML += `Error running tests: ${error.message}\n`;
+            }
+            
+            // Restore console
+            console.log = originalLog;
+            console.error = originalError;
+        });
+    </script>
+</body>
+</html>

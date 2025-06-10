@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "mcp__srquential-thinking__sequentialthinking"
+      "mcp__srquential-thinking__sequentialthinking",
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(git add:*)"
     ],
     "deny": []
   }
