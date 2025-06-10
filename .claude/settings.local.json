@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__srquential-thinking__sequentialthinking"
+    ],
+    "deny": []
+  }
+}

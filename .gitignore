@@ -1,0 +1,88 @@
+# RC Car Racing Game - .gitignore
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor and IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# Node.js (if development tools are added later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Browser Cache and Temporary Files
+*.tmp
+*.temp
+.cache/
+
+# Game-specific Files
+# Local high scores and save data (if implemented)
+save/
+saves/
+*.save
+highscores.json
+user-settings.json
+
+# Debug and Log Files
+*.log
+debug/
+logs/
+crash-reports/
+
+# Build and Distribution (if build process is added)
+dist/
+build/
+out/
+
+# Backup Files
+*.bak
+*.backup
+*~
+
+# Test Coverage (if coverage tools are added)
+coverage/
+.nyc_output/
+
+# Performance Profiling Data
+*.prof
+profiling/
+
+# Screenshots and recordings (for debugging)
+screenshots/
+recordings/
+*.png
+*.jpg
+*.gif
+*.mp4
+*.webm
+
+# Environment and Configuration
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+config.local.js
+
+# Compressed Files
+*.zip
+*.tar.gz
+*.rar
+*.7z
